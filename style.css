@@ -1,0 +1,26 @@
+.container {
+    margin: 30px;
+    /* border: 1px solid black; */
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.square {
+    box-sizing: border-box;
+    outline: 1px solid transparent;
+    background-color: rgb(47, 117, 188);
+    width: 10px;
+    height: 10px;
+
+    transition: background-color 0.5s ease;
+}
+
+.square:hover {
+    background-color: aqua;
+    transition: background-color 0s;
+}
+
+.square:not(:hover) {
+  transition: background-color 1s ease 1s;
+}
+

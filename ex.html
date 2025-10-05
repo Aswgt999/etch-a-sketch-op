@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Transition Demo</title>
+    <style>
+      body {
+        display: flex;
+        gap: 2rem;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        background: #f4f4f4;
+        font-family: sans-serif;
+      }
+
+      .box {
+        width: 80px;
+        height: 80px;
+        background: rgb(103, 163, 213);
+        border-radius: 6px;
+        cursor: pointer;
+      }
+
+      /* Different transition setups */
+      .duration {
+        transition: background-color 1s ease; /* slow fade */
+      }
+
+      .delay {
+        transition: background-color 0.5s ease 1s; /* waits 1s before fading */
+      }
+
+      .timing {
+        transition: background-color 0.5s ease-in-out; /* smooth curve */
+      }
+
+      .all {
+        transition: all 0.5s ease; /* animates everything */
+      }
+
+      /* Hover state */
+      .box:hover {
+        background: tomato;
+        transform: scale(1.2);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="box duration" title="Duration: 1s"></div>
+    <div class="box delay" title="Delay: 1s"></div>
+    <div class="box timing" title="Ease-in-out"></div>
+    <div class="box all" title="All properties"></div>
+  </body>
+</html>
