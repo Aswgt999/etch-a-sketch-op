@@ -1,10 +1,19 @@
 function promptAndGenerateSquares() {
     const noOfSquares = parseInt(prompt("How many squares(limit=100)?"));
-    const container = document.querySelector(".container");
+    if (noOfSquares > 100) {
+        alert("Above limit!!");
+    } else if (noOfSquares < 0) {
+        alert("Below limit");
+    } else {
+        const container = document.querySelector(".container");
     
+    // Initializing container for etch-a-sketch
+    container.style.border = "5px solid black";
     container.innerHTML = "";
     container.style.width = (noOfSquares * 10) + "px";
     container.style.height = (noOfSquares * 10) + "px";
+    
+    // Generating etch-a-sketch board 
     for (let i = 0; i < noOfSquares; i++) {
         for (let j = 0; j < noOfSquares; j++) {
             const gridSquare = document.createElement('div');
@@ -12,20 +21,49 @@ function promptAndGenerateSquares() {
             container.appendChild(gridSquare);
         } 
     }
+
+    // Code for persistence of hover effect
+    document.querySelectorAll('.square').forEach(square => {
+    square.addEventListener('mouseenter', () => {
+    square.classList.add('drawn');
+        });
+    });
+    }
+    // const container = document.querySelector(".container");
+    
+    // // Initializing container for etch-a-sketch
+    // container.style.border = "5px solid black";
+    // container.innerHTML = "";
+    // container.style.width = (noOfSquares * 10) + "px";
+    // container.style.height = (noOfSquares * 10) + "px";
+    
+    // // Generating etch-a-sketch board 
+    // for (let i = 0; i < noOfSquares; i++) {
+    //     for (let j = 0; j < noOfSquares; j++) {
+    //         const gridSquare = document.createElement('div');
+    //         gridSquare.className = "square";
+    //         container.appendChild(gridSquare);
+    //     } 
+    // }
+
+    // // Code for persistence of hover effect
+    // document.querySelectorAll('.square').forEach(square => {
+    // square.addEventListener('mouseenter', () => {
+    // square.classList.add('drawn');
+    //     });
+    // });
 }
 
-// const container = document.querySelector(".container");
+function clearSketch() {
+    // const container = document.querySelector(".container");
+    // container.innerHTML = "";
+    document.querySelectorAll('.square').forEach(square => {
+        square.style.transition = 'none';
+        square.classList.remove('drawn');
 
-// const gridSquare = document.createElement('div');
-// gridSquare.className = "square";
+        requestAnimationFrame(() => {
+            square.style.transition = '';
+        });
+    });
 
-
-// containerOfGrid.appendChild(gridSquare);
-
-// for (let i = 0; i < 16; i++) {
-//     for (let j = 0; j < 16; j++) {
-//         const gridSquare = document.createElement('div');
-//         gridSquare.className = "square";
-//         container.appendChild(gridSquare);
-//     } 
-// }
+}

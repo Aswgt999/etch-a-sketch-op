@@ -1,6 +1,23 @@
+body {
+    background-color: aquamarine;
+}
+.etch-a-sketch {
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
+
+.controls {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
 .container {
-    margin: 30px;
-    /* border: 1px solid black; */
+    margin-top: 50px;
     display: flex;
     flex-wrap: wrap;
 }
@@ -8,10 +25,9 @@
 .square {
     box-sizing: border-box;
     outline: 1px solid transparent;
-    background-color: rgb(47, 117, 188);
+    background-color:blue;
     width: 10px;
     height: 10px;
-
     transition: background-color 0.5s ease;
 }
 
@@ -24,3 +40,26 @@
   transition: background-color 1s ease 1s;
 }
 
+.square.drawn {
+  background-color: aqua;
+  transition: background-color 0s;
+}
+
+button {
+    background:  #0072ff;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 1rem;
+    font-family: 'Segoe UI', sans-serif;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+button:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 14px rgba(0, 0, 0, 0.3);
+
+}
